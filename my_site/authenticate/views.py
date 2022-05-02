@@ -44,32 +44,3 @@ def register_user(request):
 	context = {'form': form}
 	return render(request, 'register.html', context)
 
-# def edit_profile(request):
-# 	if request.method =='POST':
-# 		form = EditProfileForm(request.POST, instance= request.user)
-# 		if form.is_valid():
-# 			form.save()
-# 			messages.success(request, ('You have edited your profile'))
-# 			return redirect('home')
-# 	else: 		#passes in user information 
-# 		form = EditProfileForm(instance= request.user) 
-
-# 	context = {'form': form}
-# 	return render(request, 'authenticate/edit_profile.html', context)
-# 	#return render(request, 'authenticate/edit_profile.html',{})
-
-
-
-# def change_password(request):
-# 	if request.method =='POST':
-# 		form = PasswordChangeForm(data=request.POST, user= request.user)
-# 		if form.is_valid():
-# 			form.save()
-# 			update_session_auth_hash(request, form.user)
-# 			messages.success(request, ('You have edited your password'))
-# 			return redirect('home')
-# 	else: 		#passes in user information 
-# 		form = PasswordChangeForm(user= request.user) 
-
-# 	context = {'form': form}
-# 	return render(request, 'authenticate/change_password.html', context)
