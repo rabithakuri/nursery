@@ -4,9 +4,11 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib import messages 
 from .forms import SignUpForm, EditProfileForm 
 # Create your views here.
-def home(request): 
-	return render(request, 'home.html', {})
 
+#The home function view is used in app named webapp 
+"""def home(request): 
+	return render(request, 'home.html', {})
+"""
 def login_user (request):
 	if request.method == 'POST': #if someone fills out form , Post it 
 		username = request.POST['username']
@@ -43,4 +45,3 @@ def register_user(request):
 
 	context = {'form': form}
 	return render(request, 'register.html', context)
-
