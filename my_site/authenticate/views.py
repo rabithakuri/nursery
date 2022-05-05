@@ -7,6 +7,35 @@ from .forms import SignUpForm, EditProfileForm
 def home(request): 
 	return render(request, 'home.html', {})
 
+def about(request): 
+	return render(request, 'about.html', {})
+
+def cart(request): 
+	return render(request, 'cart.html', {})
+	
+def checkout(request): 
+	return render(request, 'checkout.html', {})
+	
+def contact(request): 
+	return render(request, 'contact_us.html', {})
+	
+def gallery(request): 
+	return render(request, 'gallery.html', {})
+	
+def myaccount(request): 
+	return render(request, 'my_account.html', {})
+	
+def shop(request): 
+	return render(request, 'shop.html', {})
+	
+def shops(request): 
+	return render(request, 'shop_detail.html', {})
+	
+def wishlist(request): 
+	return render(request, 'wishlist.html', {})
+	
+
+
 def login_user (request):
 	if request.method == 'POST': #if someone fills out form , Post it 
 		username = request.POST['username']
