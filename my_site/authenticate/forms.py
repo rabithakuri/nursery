@@ -18,7 +18,7 @@ class EditProfileForm(UserChangeForm):
 
 
 class SignUpForm(UserCreationForm):
-	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}), )
+	email = forms.EmailField(label="Email", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}), error_messages={'exists':'this already exist'})
 	first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}))
 	last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}))
 	
@@ -44,3 +44,15 @@ class SignUpForm(UserCreationForm):
 	    self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
 	    self.fields['password2'].label = ''
 	    self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
+
+	# def save(self,commit=True):
+	# 	user = super(SignUpForm, self).save(commit=False)
+	# 	user.email = self.cleaned_data['email']
+	# 	if commit:
+	# 		user.save()
+	# 	return user
+
+	# def clean_email(self):
+	# 	if User.objects.filter(email=self.cleaned_data['email']).exists():
+	# 		raise forms.ValidationError(self.fields['email'].erroe_messages['exists'])
+	# 	return self.cleaned_data['email']

@@ -7,6 +7,39 @@ from .forms import SignUpForm, EditProfileForm
 def home(request): 
 	return render(request, 'home.html', {})
 
+<<<<<<< Updated upstream
+=======
+def about(request): 
+	return render(request, 'about.html', {})
+
+def cart(request): 
+	return render(request, 'cart.html', {})
+	
+def checkout(request): 
+	return render(request, 'checkout.html', {})
+	
+def contact(request): 
+	return render(request, 'contact_us.html', {})
+	
+def gallery(request): 
+	return render(request, 'gallery.html', {})
+	
+def myaccount(request): 
+	return render(request, 'my_account.html', {})
+	
+def shop(request): 
+	return render(request, 'shop.html', {})
+	
+def shops(request): 
+	return render(request, 'shop_detail.html', {})
+	
+def wishlist(request): 
+	return render(request, 'wishlist.html', {})
+	
+# def password_reset(request): 
+# 	return render(request, 'password_reset.html', {})
+
+>>>>>>> Stashed changes
 def login_user (request):
 	if request.method == 'POST': #if someone fills out form , Post it 
 		username = request.POST['username']
@@ -43,4 +76,19 @@ def register_user(request):
 
 	context = {'form': form}
 	return render(request, 'register.html', context)
+
+
+# def change_password(request):
+# 	if request.method =='POST':
+# 		form = PasswordChangeForm(data=request.POST, user= request.user)
+# 		if form.is_valid():
+# 			form.save()
+# 			update_session_auth_hash(request, form.user)
+# 			messages.success(request, ('You have edited your password'))
+# 			return redirect('home')
+# 	else: 		#passes in user information 
+# 		form = PasswordChangeForm(user= request.user) 
+
+# 	context = {'form': form}
+# 	return render(request, 'change_pw.html', context)
 

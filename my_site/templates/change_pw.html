@@ -1,0 +1,40 @@
+{% extends 'main_base.html' %}
+
+{% load static %}
+{% block part %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<h2 class ="text-center"> Change Password </h2>
+
+<div class = "col-md-6 offset-md-3" style='padding-top:50px; text-align:center;'> 	
+<form method="POST" action="{% url 'change_password' %}">
+		{% csrf_token %}
+
+		{% if form.errors %}
+
+		      <div class="alert alert-danger alart-dismissable" role ="alert">
+                <button class="close" data-dismiss="alert">
+                    <small><sup>x</sup></small>
+                  </button>
+               
+				  {% comment %} <div class = "col-md-6 offset-md-3">  {% endcomment %}
+               {% for field in form %}
+               	{% if field.errors %}
+               		{{ field.errors }}
+               	{% endif%}
+
+               	{% endfor %}
+				  {% comment %} </div> {% endcomment %}
+
+              </div>
+
+  		{% endif %}
+
+
+		{{ form.as_p }}
+		<div class = "col-md-6 offset-md-3" style='padding-top:10px; padding-bottom:20px; text-align:center;'> 
+		<input type="submit" value="Change Password" class=" btn btn-secondary"></div>
+	</form>
+</div>
+
+{% endblock %}
